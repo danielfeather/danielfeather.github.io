@@ -1,0 +1,90 @@
+@import "_colors";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+    transition: color .5s;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+.page-container {
+    height: 100%;
+    display: flex;
+    color: $color4;
+    font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(to right, rgba($color1, .9), rgba($color1, .7)), url('/images/background.jpeg'); 
+    background-position: center;
+    background-size: cover;
+    align-content: center;
+    align-items: center;
+}
+
+.card {
+    
+    padding: 3rem;
+
+    h1.title {
+        margin-top: 0;
+        font-family: 'Montserrat', sans-serif;
+        animation: fadeInTop ease 3s;
+    }
+
+    h2.subtitle {
+        margin-top: 0;
+        font-weight: lighter;
+    }
+
+    p.content {
+        margin-top: 0;
+    }
+}
+
+.social-list {
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        margin-right: .5rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            display: block;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .card {
+        width: 50%;
+    }
+}
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
