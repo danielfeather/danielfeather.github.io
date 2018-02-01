@@ -1,4 +1,5 @@
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 html, body {
@@ -10,19 +11,26 @@ body {
 a {
   text-decoration: none;
   color: #F6C90E;
+  -webkit-transition: color .5s;
   transition: color .5s; }
   a:hover {
     color: #c9a408; }
 
 .page-container {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: #EEEEEE;
   font-family: 'Open Sans', sans-serif;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(48, 56, 65, 0.9)), to(rgba(48, 56, 65, 0.7))), url("/images/background.jpeg");
   background-image: linear-gradient(to right, rgba(48, 56, 65, 0.9), rgba(48, 56, 65, 0.7)), url("/images/background.jpeg");
   background-position: center;
   background-size: cover;
+  -ms-flex-line-pack: center;
   align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
 
 .card {
@@ -30,6 +38,7 @@ a {
   .card h1.title {
     margin-top: 0;
     font-family: 'Montserrat', sans-serif;
+    -webkit-animation: fadeInTop ease 3s;
     animation: fadeInTop ease 3s; }
   .card h2.subtitle {
     margin-top: 0;
@@ -52,6 +61,12 @@ a {
 @media screen and (min-width: 1024px) {
   .card {
     width: 50%; } }
+
+@-webkit-keyframes fadeInTop {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 @keyframes fadeInTop {
   from {

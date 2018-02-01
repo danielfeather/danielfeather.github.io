@@ -3,6 +3,7 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
 const cleanCSS = require("gulp-clean-css");
+const autoprefixer = require('gulp-autoprefixer');
 
 // Create the browserSync server
 let browserSync = require("browser-sync").create("dfeather.me");
@@ -10,7 +11,11 @@ let browserSync = require("browser-sync").create("dfeather.me");
 gulp.task("compile-css", () => {
     return gulp.src("./scss/site.scss")
         .pipe(sass())
-        .pipe(gulp.dest("./css"))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest("./css"))     
 });
 
 gulp.task("minify-css", ["compile-css"], () => {
