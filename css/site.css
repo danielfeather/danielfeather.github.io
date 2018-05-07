@@ -114,7 +114,8 @@ a {
   .page-container {
     padding: 3rem; }
   .card {
-    background-color: #273952; }
+    background-color: #273952;
+    height: auto; }
     .card .header {
       text-align: left; }
       .card .header img.picture {
