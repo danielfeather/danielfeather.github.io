@@ -18,25 +18,25 @@ gulp.task("compile-css", () => {
         .pipe(gulp.dest("./css"))     
 });
 
-gulp.task("minify-css", ["compile-css"], () => {
+gulp.task("minify-css", gulp.series("compile-css", () => {
     return gulp.src("./css/site.css")
         .pipe(cleanCSS())
         .pipe(rename("site.min.css"))
         .pipe(gulp.dest("./css"))
-});
+}));
 
-gulp.task('browsersync', ["minify-css"], () => {
+gulp.task('browsersync', gulp.series("minify-css", () => {
     browserSync.init({
         server: {
             baseDir: "./"
         }
     });
-});
+}));
 
 // Dev task with browsersync
-gulp.task('dev', ['browsersync'], () => {
+gulp.task('dev', gulp.series('browsersync', () => {
     gulp.watch('scss/**/*', ['minify-css'])
     gulp.watch('css/*.min.css', browserSync.reload);
     // Reloads the browser whenever HTML files change
     gulp.watch('*.html', browserSync.reload);
-});
+}));
